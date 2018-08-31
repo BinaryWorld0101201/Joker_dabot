@@ -7,6 +7,7 @@ from tg_bot import dispatcher
 def translate(bot: Bot, update: Update):
   message = update.effective_message
   text = message.reply_to_message.text
+  translator=Translator()
   reply_text=translator.translate(text, dest='en').text
   reply_text="`Source: `\n"+text+"`Translation: `\n"+reply_text
   message.reply_to_message.reply_text(reply_text)
